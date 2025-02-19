@@ -3,8 +3,6 @@ require('express-async-errors');
 
 //extra security packages
 const helmet = require('helmet')
-
-
 const cors = require('cors')
 const xss = require('xss-clean')
 const ratelimiter = require('express-rate-limit')
@@ -12,18 +10,14 @@ const ratelimiter = require('express-rate-limit')
 
 const express = require('express')
 const app = express()
-const fs = require('fs')
 
 const connectDB = require('./db/connect')
-const authUser = require('./middleware/auth')
-  
+const authUser = require('./middleware/auth')  
 
 // Swagger
 const swaggerUI = require('swagger-ui-express')
 const YAML = require('yamljs')
-
-const path = require('path');
-
+const swaggerDocument = YAML.load('./swagger.yaml');
 
 //routers
 const authRouter = require('./routes/auth')
@@ -47,35 +41,12 @@ app.use(helmet())
 app.use(cors())
 app.use(xss())
 
-
 app.get('/', (req,res) => {
     res.send('<h1>Welcome to Jobs Vault Api</h1><a href="/api-docs">Documentation</a>')
 })
 
-const file = fs.readFileSync(path.resolve(__dirname, './swagger.yaml'), 'utf8');
 
-// Read the Swagger UI CSS file (custom CSS)
-const css = fs.readFileSync(
-  path.resolve(__dirname, 'node_modules/swagger-ui-dist/swagger-ui.css'),
-  'utf8'
-);
-
-const swaggerDocument = YAML.parse(file);
-
-// Define options for Swagger UI setup
-const options = {
-  customCss: css, // Apply the custom CSS
-};
-
-// Serve Swagger UI with the custom CSS
-app.use(
-  '/api-docs',
-  express.static('node_modules/swagger-ui-dist'), // Serve Swagger UI assets
-  swaggerUI.serve, // Serve Swagger UI
-  swaggerUI.setup(swaggerDocument, options) // Set up Swagger UI with the custom options
-);
-
-
+app.use( '/api-docs',  swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 
 //routes
