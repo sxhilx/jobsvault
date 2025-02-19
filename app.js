@@ -15,6 +15,7 @@ const connectDB = require('./db/connect')
 const authUser = require('./middleware/auth')  
 
 // Swagger
+const swaggerUiAssetPath = require('swagger-ui-dist').getAbsoluteFSPath();
 const swaggerUI = require('swagger-ui-express')
 const YAML = require('yamljs')
 const path = require('path');
@@ -31,6 +32,8 @@ const notFoundMiddleware = require('./middleware/not-found')
 const errorHandlerMiddleware = require('./middleware/error-handler')
 
 //middleware
+// Serve Swagger UI assets from '/swagger'
+app.use('/swagger', express.static(swaggerUiAssetPath));
 app.use(ratelimiter({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, // limit each IP to 100 request per windowMs
@@ -44,9 +47,17 @@ app.get('/', (req,res) => {
 })
 
 
-app.use('/api-docs',  
-  swaggerUI.serve, 
-  swaggerUI.setup(swaggerDocument));
+app.use(
+  '/api-docs',
+  swaggerUI.serve,
+  swaggerUI.setup(swaggerDocument, {
+    customCssUrl: '/swagger/swagger-ui.css', // Point to local asset
+    customJs: [
+      '/swagger/swagger-ui-bundle.js',            // Local bundle file
+      '/swagger/swagger-ui-standalone-preset.js'    // Local standalone preset
+    ]
+  })
+);
 
 
 //routes
