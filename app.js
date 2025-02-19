@@ -20,8 +20,6 @@ const swaggerUI = require('swagger-ui-express')
 const YAML = require('yamljs')
 const path = require('path');
 const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
-// const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui.css";
-
 
 //routers
 const authRouter = require('./routes/auth')
