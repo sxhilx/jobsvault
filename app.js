@@ -38,6 +38,7 @@ app.use(ratelimiter({
     max: 100, // limit each IP to 100 request per windowMs
 }))
 app.use(express.json())
+app.use(helmet())
 app.use(cors())
 app.use(xss())
 
