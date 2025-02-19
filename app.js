@@ -41,6 +41,16 @@ app.use(ratelimiter({
 
 app.use(express.json())
 app.use(helmet())
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "default-src": ["'self'"],
+      "script-src": ["'self'", "https://cdnjs.cloudflare.com"],
+      "style-src": ["'self'", "https://cdnjs.cloudflare.com"],
+    },
+  })
+);
 app.use(cors())
 app.use(xss())
 
