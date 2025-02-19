@@ -17,7 +17,7 @@ const authUser = require('./middleware/auth')
 // Swagger
 const swaggerUI = require('swagger-ui-express')
 const YAML = require('yamljs')
-const swaggerDocument = YAML.load('./swagger.yaml');
+const swaggerDocument = YAML.load(__dirname, './swagger.yaml');
 
 //routers
 const authRouter = require('./routes/auth')
