@@ -12,26 +12,10 @@ const ratelimiter = require('express-rate-limit')
 
 const express = require('express')
 const app = express()
+const fs = require('fs')
 
 const connectDB = require('./db/connect')
 const authUser = require('./middleware/auth')
-
-app.use(helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: [`'self'`],            
-        styleSrc: [`'self'`, `'unsafe-inline'`, `https:`, `cdn.jsdelivr.net`], 
-        imgSrc: [`'self'`, 'data:', 'validator.swagger.io'], 
-        scriptSrc: [
-          `'self'`,                           
-          `'unsafe-inline'`,                 
-          `'unsafe-eval'`,                    
-          `https:`,                           
-          `cdn.jsdelivr.net`,                  
-        ],
-      },
-    },
-  }));
   
 
 // Swagger
@@ -69,7 +53,19 @@ app.use(xss())
 app.get('/', (req,res) => {
     res.send('<h1>Welcome to Jobs Vault Api</h1><a href="/api-docs">Documentation</a>')
 })
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+
+// Custom CSS for Swagger UI (Inline CSS)
+const customCss = '.swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }';
+
+// External CSS URL (if needed)
+const customCssUrl = 'https://example.com/path/to/your/custom/styles.css'; // Replace with your actual URL
+
+// Serve Swagger UI with custom CSS (Inline CSS or External CSS URL)
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument, {
+  customCss: customCss,      // Apply custom inline CSS to Swagger UI
+  customCssUrl: customCssUrl, // Alternatively, you can use an external CSS URL
+}));
+
 
 
 //routes
