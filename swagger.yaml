@@ -1,0 +1,252 @@
+openapi: 3.0.0
+info:
+  title: Jobs Api
+  version: 1.0.0
+servers:
+  - url: https://jobsvaultx.vercel.app/api/v1
+    variables: {}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    UserRegistration:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "John Doe"
+        email:
+          type: string
+          format: email
+          example: "john.doe@example.com"
+        password:
+          type: string
+          format: password
+          example: "securepassword123"
+      required:
+        - name
+        - email
+        - password
+    UserLogin:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          example: "john.doe@example.com"
+        password:
+          type: string
+          format: password
+          example: "securepassword123"
+      required:
+        - email
+        - password
+    JobCreate:
+      type: object
+      properties:
+        company:
+          type: string
+          example: "Tech Corp"
+        position:
+          type: string
+          example: "Software Engineer"
+      required:
+        - company
+        - position
+    JobUpdate:
+      type: object
+      properties:
+        company:
+          type: string
+          example: "Updated Corp"
+        position:
+          type: string
+          example: "Senior Software Engineer"
+      required:
+        - company
+        - position
+    JobResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "65f8c1a2e4b0c9a3b8f9d7e1"
+        company:
+          type: string
+          example: "Tech Corp"
+        position:
+          type: string
+          example: "Software Engineer"
+        createdBy:
+          type: string
+          example: "65f8c1a2e4b0c9a3b8f9d7e2"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2023-10-15T12:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2023-10-15T12:00:00Z"
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Register User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistration'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "User registered successfully"
+                  user:
+                    $ref: '#/components/schemas/UserRegistration'
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  user:
+                    $ref: '#/components/schemas/UserRegistration'
+  /jobs:
+    post:
+      tags:
+        - Jobs
+      summary: Create Job
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobCreate'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: "Bearer {JWT_TOKEN}"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+    get:
+      tags:
+        - Jobs
+      summary: Get All Jobs
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: "Bearer {JWT_TOKEN}"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobResponse'
+  /jobs/{id}:
+    get:
+      tags:
+        - Jobs
+      summary: Get Single Job
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+    patch:
+      tags:
+        - Jobs
+      summary: Update Job
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobUpdate'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+    delete:
+      tags:
+        - Jobs
+      summary: Delete Job
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Job deleted successfully"

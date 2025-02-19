@@ -8,6 +8,15 @@ const xss = require('xss-clean')
 const ratelimiter = require('express-rate-limit')
 
 
+<<<<<<< HEAD
+=======
+// Swagger
+const swaggerUI = require('swagger-ui-express')
+const YAML = require('yamljs')
+const swaggerDocument = YAML.load('./swagger.yaml')
+
+
+>>>>>>> master
 const express = require('express')
 const app = express()
 
@@ -29,14 +38,26 @@ app.use(ratelimiter({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, // limit each IP to 100 request per windowMs
 }))
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
 app.use(express.json())
 app.use(helmet())
 app.use(cors())
 app.use(xss())
 
 
+<<<<<<< HEAD
+=======
+app.get('/', (req,res) => {
+    res.send('<h1>Welcome to Jobs Vault Api</h1><a href="/api-docs">Documentation</a>')
+})
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+
+
+>>>>>>> master
 //routes
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/jobs', authUser, jobsRouter)
