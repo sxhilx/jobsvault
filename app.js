@@ -49,7 +49,7 @@ app.get('/', (req,res) => {
     res.send('<h1>Welcome to Jobs Vault Api</h1><a href="/api-docs">Documentation</a>')
 })
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-
+pp.use(express.static(path.join(__dirname, 'node_modules/swagger-ui-dist')));
 
 //routes
 app.use('/api/v1/auth', authRouter)
