@@ -3,14 +3,8 @@ require('express-async-errors');
 
 //extra security packages
 const helmet = require('helmet')
-app.use(
-    helmet.contentSecurityPolicy({
-      directives: {
-        scriptSrc: ["'self'", "https://jobsvaultx.vercel.app"],
-      },
-    })
-  );
-  
+
+
 const cors = require('cors')
 const xss = require('xss-clean')
 const ratelimiter = require('express-rate-limit')
@@ -29,6 +23,13 @@ const YAML = require('yamljs')
 const path = require('path');
 const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
 
+app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        scriptSrc: ["'self'", "https://jobsvaultx.vercel.app"],
+      },
+    })
+);
 
 //routers
 const authRouter = require('./routes/auth')
