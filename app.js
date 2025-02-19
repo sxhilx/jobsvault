@@ -51,7 +51,7 @@ app.use(
   '/api-docs',
   swaggerUI.serve,
   swaggerUI.setup(swaggerDocument, {
-    customCssUrl: '/swagger/swagger-ui.css',
+    customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui.css',
     customJs: [
       '/swagger/swagger-ui-bundle.js',            // Local bundle file
       '/swagger/swagger-ui-standalone-preset.js'    // Local standalone preset
