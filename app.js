@@ -48,24 +48,7 @@ app.use(xss())
 app.get('/', (req,res) => {
     res.send('<h1>Welcome to Jobs Vault Api</h1><a href="/api-docs">Documentation</a>')
 })
-
-app.use(
-    '/api-docs',
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerDocument, {
-        customSiteTitle: "API Docs",
-        customCss: ".swagger-ui .topbar { display: none }",
-        swaggerOptions: {
-            csp: {
-                useDefaults: true,
-                directives: {
-                    "script-src": ["'self'", "'unsafe-inline'"]
-                }
-            }
-        }
-    })
-);
-
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 
 //routes
