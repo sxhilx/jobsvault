@@ -16,6 +16,15 @@ const app = express()
 const connectDB = require('./db/connect')
 const authUser = require('./middleware/auth')
 
+app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://jobsvaultx.vercel.app/"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://jobsvaultx.vercel.app/"],
+      },
+    })
+);
+
 // Swagger
 const swaggerUI = require('swagger-ui-express')
 const YAML = require('yamljs')
@@ -23,13 +32,7 @@ const YAML = require('yamljs')
 const path = require('path');
 const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
 
-app.use(
-    helmet.contentSecurityPolicy({
-      directives: {
-        scriptSrc: ["'self'", "https://jobsvaultx.vercel.app"],
-      },
-    })
-);
+
 
 //routers
 const authRouter = require('./routes/auth')
