@@ -3,6 +3,14 @@ require('express-async-errors');
 
 //extra security packages
 const helmet = require('helmet')
+app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        scriptSrc: ["'self'", "https://jobsvaultx.vercel.app"],
+      },
+    })
+  );
+  
 const cors = require('cors')
 const xss = require('xss-clean')
 const ratelimiter = require('express-rate-limit')
