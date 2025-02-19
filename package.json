@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "node app.js",
     "dev": "nodemon app.js"
-=======
-    "start": "nodemon app.js"
->>>>>>> master
   },
   "keywords": [],
   "author": "",
