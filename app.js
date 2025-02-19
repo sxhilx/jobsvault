@@ -23,8 +23,6 @@ const swaggerUI = require('swagger-ui-express')
 const YAML = require('yamljs')
 
 const path = require('path');
-const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
-
 
 
 //routers
@@ -54,17 +52,29 @@ app.get('/', (req,res) => {
     res.send('<h1>Welcome to Jobs Vault Api</h1><a href="/api-docs">Documentation</a>')
 })
 
-// Custom CSS for Swagger UI (Inline CSS)
-const customCss = '.swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }';
+const file = fs.readFileSync(path.resolve(__dirname, './swagger.yaml'), 'utf8');
 
-// External CSS URL (if needed)
-const customCssUrl = 'https://example.com/path/to/your/custom/styles.css'; // Replace with your actual URL
+// Read the Swagger UI CSS file (custom CSS)
+const css = fs.readFileSync(
+  path.resolve(__dirname, 'node_modules/swagger-ui-dist/swagger-ui.css'),
+  'utf8'
+);
 
-// Serve Swagger UI with custom CSS (Inline CSS or External CSS URL)
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument, {
-  customCss: customCss,      // Apply custom inline CSS to Swagger UI
-  customCssUrl: customCssUrl, // Alternatively, you can use an external CSS URL
-}));
+const swaggerDocument = YAML.parse(file);
+
+// Define options for Swagger UI setup
+const options = {
+  customCss: css, // Apply the custom CSS
+};
+
+// Serve Swagger UI with the custom CSS
+app.use(
+  '/api-docs',
+  express.static('node_modules/swagger-ui-dist'), // Serve Swagger UI assets
+  swaggerUI.serve, // Serve Swagger UI
+  swaggerUI.setup(swaggerDocument, options) // Set up Swagger UI with the custom options
+);
+
 
 
 
