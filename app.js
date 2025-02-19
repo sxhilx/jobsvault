@@ -8,19 +8,17 @@ const xss = require('xss-clean')
 const ratelimiter = require('express-rate-limit')
 
 
-// Swagger
-const swaggerUI = require('swagger-ui-express')
-const YAML = require('yamljs')
-const path = require('path');
-const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
-
-
-
 const express = require('express')
 const app = express()
 
 const connectDB = require('./db/connect')
 const authUser = require('./middleware/auth')
+
+// Swagger
+const swaggerUI = require('swagger-ui-express')
+const YAML = require('yamljs')
+const swaggerDocument = YAML.load('./swagger.yaml')
+
 
 //routers
 const authRouter = require('./routes/auth')
@@ -49,7 +47,7 @@ app.get('/', (req,res) => {
     res.send('<h1>Welcome to Jobs Vault Api</h1><a href="/api-docs">Documentation</a>')
 })
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-pp.use(express.static(path.join(__dirname, 'node_modules/swagger-ui-dist')));
+
 
 //routes
 app.use('/api/v1/auth', authRouter)
