@@ -34,6 +34,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler')
 //middleware
 // Serve Swagger UI assets from '/swagger'
 app.use('/swagger', express.static(swaggerUiAssetPath));
+
 app.use(ratelimiter({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, // limit each IP to 100 request per windowMs
@@ -46,12 +47,11 @@ app.get('/', (req,res) => {
     res.send('<h1>Welcome to Jobs Vault Api</h1><a href="/api-docs">Documentation</a>')
 })
 
-
 app.use(
   '/api-docs',
   swaggerUI.serve,
   swaggerUI.setup(swaggerDocument, {
-    customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui.css',
+    customCssUrl: '/swagger/swagger-ui.css',
     customJs: [
       '/swagger/swagger-ui-bundle.js',            // Local bundle file
       '/swagger/swagger-ui-standalone-preset.js'    // Local standalone preset
