@@ -16,14 +16,23 @@ const app = express()
 const connectDB = require('./db/connect')
 const authUser = require('./middleware/auth')
 
-app.use(
-    helmet.contentSecurityPolicy({
+app.use(helmet({
+    contentSecurityPolicy: {
       directives: {
-        scriptSrc: ["'self'", "'unsafe-inline'", "https://jobsvaultx.vercel.app/"],
-        styleSrc: ["'self'", "'unsafe-inline'", "https://jobsvaultx.vercel.app/"],
+        defaultSrc: [`'self'`],            
+        styleSrc: [`'self'`, `'unsafe-inline'`, `https:`, `cdn.jsdelivr.net`], 
+        imgSrc: [`'self'`, 'data:', 'validator.swagger.io'], 
+        scriptSrc: [
+          `'self'`,                           
+          `'unsafe-inline'`,                 
+          `'unsafe-eval'`,                    
+          `https:`,                           
+          `cdn.jsdelivr.net`,                  
+        ],
       },
-    })
-);
+    },
+  }));
+  
 
 // Swagger
 const swaggerUI = require('swagger-ui-express')
