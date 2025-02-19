@@ -49,7 +49,14 @@ app.get('/', (req,res) => {
 })
 
 
-app.use( '/api-docs',  swaggerUI.serve, swaggerUI.setup(swaggerDocument, {customCssUrl: CSS_URL}));
+app.use( '/api-docs',  
+  swaggerUI.serve, 
+  swaggerUI.setup(swaggerDocument, 
+    {customCssUrl: CSS_URL,
+    customJs: [
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui-bundle.js", // Bundle JS
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.18.2/swagger-ui-standalone-preset.js" // Standalone preset
+  ]}));
 
 
 //routes
