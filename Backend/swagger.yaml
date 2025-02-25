@@ -3,7 +3,7 @@ info:
   title: Jobs Api
   version: 1.0.0
 servers:
-  - url: https://jobsvaultx.vercel.app/api/v1
+  - url: https://api-jobsvault.vercel.app/api/v1
     variables: {}
 components:
   securitySchemes:
