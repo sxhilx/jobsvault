@@ -30,10 +30,10 @@ const AddJob = () => {
 
   return (
     <div className='max-w-6xl mx-auto font-primary px-2 flex flex-col justify-center items-center'>
-      <h1 className='text-2xl font-semibold mt-10 '>Add a new Job </h1>
+      <h1 className='text-2xl font-semibold mt-20 '>Add a new Job </h1>
       <span className="text-gray-400 mt-2">Add a new job application</span>
       {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
-      <div className='lg:min-w-3xl min-w-lg border border-[#E5E7EB] px-10 py-5 my-10 rounded-2xl shadow'>
+      <div className='lg:min-w-3xl mx-2 border border-[#E5E7EB] px-10 py-5 my-10 rounded-2xl shadow'>
         <form onSubmit={addJob}>
           <div className=''>
             <label htmlFor="company" className='ml-1 font-semibold'>Company</label>
@@ -80,7 +80,7 @@ const AddJob = () => {
           </div>
 
           <button type="submit" className='w-full flex justify-center items-center gap-3 bg-black text-white rounded-lg py-2 my-2 font-medium text-sm cursor-pointer hover:bg-gray-800'>
-             {loading ? ('Loading...') : (<> Add job <ArrowRight size={14}/> </>)}
+             {loading ? ('Adding...') : (<> Add job <ArrowRight size={14}/> </>)}
           </button> 
         </form>
       </div>

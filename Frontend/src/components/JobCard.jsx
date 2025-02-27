@@ -35,7 +35,7 @@ const JobCard = ({ jobs, setJobs }) => {
     }
 
   return (
-    <div className= 'max-w-96 rounded-xl border border-[#E5E7EB] text-[#0D0D0F] font-sans hover:shadow-lg transition duration-200'>
+    <div className= 'rounded-xl border border-[#E5E7EB] text-[#0D0D0F] font-sans hover:shadow-lg transition duration-200'>
         <div className='p-6'>
             <div className='flex justify-between mb-3'>
                 <h1 className='text-xl font-bold'>{jobs.company}</h1>

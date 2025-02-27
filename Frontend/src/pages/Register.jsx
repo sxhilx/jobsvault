@@ -27,8 +27,8 @@ const Register = () => {
   }
 
   return (
-    <div className='flex justify-center w-full h-screen items-center bg-[#F9F9FA] font-primary'>
-      <div className='flex flex-col justify-center items-center p-6 max-w-xl border border-[#E5E7EB] bg-white rounded-xl'>
+    <div className='flex justify-center w-full min-h-screen items-center bg-[#F9F9FA] font-primary'>
+      <div className='md:mt-10 flex flex-col justify-center items-center p-6 max-w-xl border border-[#E5E7EB] bg-white rounded-xl'>
           <UserPlus size={32}/>
           <h1 className='text-2xl font-semibold'>Create an Account</h1>
           { error && <p className="text-red-500 text-sm mt-4 mb-2 max-w-96">{error}</p>}
@@ -38,7 +38,7 @@ const Register = () => {
                 <div className='relative my-2'>
                   <input 
                   type="text" 
-                  className='min-w-96 border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
+                  className='w-full border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
                   placeholder='Enter your name'
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -52,7 +52,7 @@ const Register = () => {
                 <div className='relative my-2'>
                   <input 
                   type="text" 
-                  className='min-w-96 border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
+                  className='w-full border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
                   placeholder='Enter Email'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -66,7 +66,7 @@ const Register = () => {
                 <div className='relative my-2'>
                   <input 
                   type="password" 
-                  className='min-w-96 border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
+                  className='w-full border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
                   placeholder='Create Password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}

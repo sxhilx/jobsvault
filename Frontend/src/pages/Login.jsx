@@ -24,8 +24,8 @@ const Login = () => {
   }  
   }
   return (
-    <div className='flex justify-center w-full h-screen items-center bg-[#F9F9FA] font-primary'>
-      <div className='flex flex-col justify-center items-center p-6 max-w-xl border border-[#E5E7EB] bg-white rounded-xl'>
+    <div className='flex justify-center w-full min-h-screen items-center bg-[#F9F9FA] font-primary'>
+      <div className='md:mt-10 flex flex-col justify-center items-center p-6 max-w-xl border border-[#E5E7EB] bg-white rounded-xl'>
           <LogIn size={32}/>
           <h1 className='text-2xl font-semibold'>Welcome Back</h1>
           {error && <p className="text-red-500 text-sm my-2">{error}</p>}
@@ -35,7 +35,7 @@ const Login = () => {
               <div className='relative my-2'>
                 <input 
                 type="text" 
-                className='min-w-96 border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
+                className='w-full border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
                 placeholder='Enter Email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -49,7 +49,7 @@ const Login = () => {
                 <div className='relative my-2'>
                   <input 
                   type="password" 
-                  className='min-w-96 border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
+                  className='w-full border border-[#E5E7EB] rounded-lg pl-10 pr-3 py-2 outline-none focus:ring focus:ring-slate-950 placeholder:text-sm' 
                   placeholder='Enter Password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}

@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
 import { AddJob, Dashboard, EditJob, Login, Register } from "./pages";
 import ProtectedRoute from "./ProtectedRoute";
-import { fetchJobs } from "./pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +26,6 @@ const router = createBrowserRouter([
           {
             path: "/dashboard",
             element: <Dashboard />,
-            loader: fetchJobs,
           },
           {
             path: "/add-job",
