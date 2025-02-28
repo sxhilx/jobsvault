@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import JobCard from "../components/JobCard";
 import { Plus } from "lucide-react";
 import { getAllJobs } from "../controllers/jobs";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
     const [jobs, setJobs] = useState([])   
@@ -31,10 +32,10 @@ const Dashboard = () => {
                     <span className="text-gray-400 mt-2">Track and manage your job applications</span>
                 </div>
                 <div className="flex justify-between mt-3">
-                    <a href="/add-job" className="bg-black text-white flex justify-center items-center py-3 px-2 rounded-lg text-sm gap-1 font-medium cursor-pointer hover:bg-gray-800">
+                    <Link to="/add-job" className="bg-black text-white flex justify-center items-center py-3 px-2 rounded-lg text-sm gap-1 font-medium cursor-pointer hover:bg-gray-800">
                         <span><Plus size={18}/></span>
                         New Application
-                    </a>
+                    </Link>
                 </div>
             </div>
 

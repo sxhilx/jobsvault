@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {ArrowRight, UserPlus, Mail, Lock, User} from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { registerUser } from '../controllers/auth'
 
 const Register = () => {
@@ -80,7 +80,7 @@ const Register = () => {
               </button>          
          </form>
          <span className='text-sm mt-4 font-normal'>
-         Already have an account? <a href="/login" className='hover:underline'>Sign in</a>
+         Already have an account? <Link href="/login" className='hover:underline'>Sign in</Link>
          </span>
       </div>
     </div>

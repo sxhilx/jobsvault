@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { LogIn, Mail, Lock, ArrowRight } from 'lucide-react'
 import {loginUser} from '../controllers/auth'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [email, setEmail] = useState("") 
@@ -63,7 +63,7 @@ const Login = () => {
               </button>          
          </form>
          <span className='text-sm mt-4 font-normal'>
-         Don't have an account? <a href="/register" className='hover:underline'>Sign up</a>
+         Don't have an account? <Link to="/register" className='hover:underline'>Sign up</Link>
          </span>
       </div>
     </div>
