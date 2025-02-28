@@ -1,13 +1,13 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
-import { AddJob, Dashboard, EditJob, Login, Register } from "./pages";
+import { AddJob, Dashboard, EditJob, Home, Login, Register } from "./pages";
 import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <Home />,
   },
   {
     path: "/login",

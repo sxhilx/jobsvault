@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-    baseURL: 'https://api-jobsvault.vercel.app/api/v1',
+    baseURL: 'https://jobs-api-i7qe.onrender.com/api/v1',
 })
 
 API.interceptors.request.use((req) => {
