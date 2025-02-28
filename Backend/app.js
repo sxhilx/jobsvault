@@ -39,7 +39,16 @@ app.use(ratelimiter({
 }))
 app.use(express.json())
 app.use(helmet())
-app.use(cors())
+const allowedOrigins = [
+  'https://jobsvault.vercel.app/'
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(xss())
 
 app.get('/', (req,res) => {
