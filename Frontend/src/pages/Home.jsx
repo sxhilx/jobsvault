@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar } from '../components'
 import { Rocket } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -13,7 +14,7 @@ const Home = () => {
                 <span><Rocket size={14} className='text-gray-400'/></span>
                 <span className='text-gray-400 text-xs md:text-sm'> 
                     Supercharge your job hunt. Track applications with ease.
-                    <a href="/register" className='text-black font-semibold'> Get started →</a>
+                    <Link to="/register" className='text-black font-semibold'> Get started →</Link>
                 </span>
             </div>
             <div className=" flex flex-col justify-center items-center space-y-10">
@@ -24,8 +25,8 @@ const Home = () => {
                     Organize and track your job applications effortlessly with our intuitive tracking system. Stay in control of your career journey and never lose sight of an opportunity
                 </div>
                 <div className='flex justify-center items-center gap-5'>
-                    <a href="/register" className='block bg-black text-white px-7 py-2 font-medium rounded-full hover:scale-105 transition duration-150'>Get Started →</a>
-                    <a href="/login" className='block bg-white text-black px-6 py-2 font-medium rounded-full hover:shadow-lg hover:bg-slate-100 transition duration-150'>Sign In</a>
+                    <Link to="/register" className='block bg-black text-white px-7 py-2 font-medium rounded-full hover:scale-105 transition duration-150'>Get Started →</Link>
+                    <Link to="/login" className='block bg-white text-black px-6 py-2 font-medium rounded-full hover:shadow-lg hover:bg-slate-100 transition duration-150'>Sign In</Link>
                 </div>
             </div>
 

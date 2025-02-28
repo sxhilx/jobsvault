@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Logo } from '../assets'
 
 const Navbar = () => {
@@ -10,8 +11,8 @@ const Navbar = () => {
                 <h1 className='text-xl font-semibold'>JobsVault</h1>
             </div>
             <div className='flex justify-center items-center gap-6'>
-                <a href="/login" className='text-sm hover:text-gray-800 font-medium'>Sign In</a>
-                <a href="/register" className='block bg-black text-white text-sm px-3 py-2 font-medium rounded-lg hover:bg-gray-800'>Get Started</a>
+                <Link to="/login" className='text-sm hover:text-gray-800 font-medium'>Sign In</Link>
+                <Link to="/register" className='block bg-black text-white text-sm px-3 py-2 font-medium rounded-lg hover:bg-gray-800'>Get Started</Link>
             </div>
         </div>
     </div>
