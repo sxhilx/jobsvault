@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar  from "./components/Sidebar";
 import { Columns2 } from "lucide-react";
+import { ScrollTop } from "./components";
 
 
 
@@ -25,7 +26,7 @@ const Layout = () => {
       )}
       
       <div className={`flex-1 overflow-auto transition-transform duration-300 ${isSideBarOpen ? "pl-64" : "pl-0"}`}>
-
+        <ScrollTop/>
         <Outlet />        
       </div>
     </div>
