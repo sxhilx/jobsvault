@@ -57,34 +57,31 @@ const EditJob = () => {
       <span className="text-gray-400 mt-2">Update your job application details</span>
 
       {loading ? (
-          <div className='lg:min-w-3xl mx-2 border border-[#E5E7EB] px-10 py-5 my-10 rounded-2xl shadow animate-pulse'>
-          <div className="space-y-6">
-            {/* Company Field */}
-            <div>
-              <div className="h-4 bg-gray-200 rounded w-1/4 mb-2"></div>
-              <div className="h-10 bg-gray-200 rounded-lg relative">
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 bg-gray-300 rounded-full"></div>
+          <div className="card w-full max-w-3xl mx-auto bg-base-100 p-6 my-10">
+          <div className="card-body">
+    
+            <form className="space-y-4">
+              {/* Company Field Skeleton */}
+              <div className="form-control">
+                <div className="skeleton h-5 w-20 mb-2"></div>
+                <div className="skeleton h-10 w-full rounded-lg"></div>
               </div>
-            </div>
-        
-            {/* Position Field */}
-            <div>
-              <div className="h-4 bg-gray-200 rounded w-1/4 mb-2"></div>
-              <div className="h-10 bg-gray-200 rounded-lg relative">
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 bg-gray-300 rounded-full"></div>
+    
+              {/* Position Field Skeleton */}
+              <div className="form-control">
+                <div className="skeleton h-5 w-20 mb-2"></div>
+                <div className="skeleton h-10 w-full rounded-lg"></div>
               </div>
-            </div>
-        
-            {/* Status Field */}
-            <div>
-              <div className="h-4 bg-gray-200 rounded w-1/4 mb-2"></div>
-              <div className="h-10 bg-gray-200 rounded-lg relative">
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 bg-gray-300 rounded-full"></div>
+    
+              {/* Status Dropdown Skeleton */}
+              <div className="form-control">
+                <div className="skeleton h-5 w-20 mb-2"></div>
+                <div className="skeleton h-10 w-full rounded-lg"></div>
               </div>
-            </div>
-        
-            {/* Submit Button */}
-            <div className="h-10 bg-gray-200 rounded-lg"></div>
+    
+              {/* Button Skeleton */}
+              <div className="skeleton h-10 w-full rounded-lg"></div>
+            </form>
           </div>
         </div>
       ) : (

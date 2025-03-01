@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-purple-100 to-white">
+    <div className="min-h-screen bg-gradient-to-tr from-purple-100 to-white animate-fadeIn">
         <div>
             <Navbar/>
         </div>
