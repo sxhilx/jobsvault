@@ -7,6 +7,10 @@
     --font-primary: "Poppins", "serif";
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 /* Custom animations */
 @keyframes fadeIn {
     from {
