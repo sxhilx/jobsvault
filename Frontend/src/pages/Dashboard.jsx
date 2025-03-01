@@ -26,7 +26,7 @@ const Dashboard = () => {
 
     return(
         <div className="max-w-6xl mx-auto font-primary px-2 py-5 bg-base-100">
-            <div className="flex flex-col lg:flex-row items-center justify-between mt-5 md:mt-0">
+            <div className="flex flex-col lg:flex-row items-center justify-between">
                 <div className="flex flex-col">
                     <h1 className="text-4xl font-semibold mt-10">Job Applications</h1>
                     <span className="text-gray-400 mt-2">Track and manage your job applications</span>
