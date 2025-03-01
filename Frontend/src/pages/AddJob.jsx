@@ -80,7 +80,7 @@ const AddJob = () => {
           </div>
 
           <button type="submit" className='w-full flex justify-center items-center gap-3 bg-black text-white rounded-lg py-2 my-2 font-medium text-sm cursor-pointer hover:bg-gray-800'>
-             {loading ? ('Adding...') : (<> Add job <ArrowRight size={14}/> </>)}
+             {loading ? (<span className="loading loading-ring loading-sm"></span>) : (<> Add job <ArrowRight size={14}/> </>)}
           </button> 
         </form>
       </div>

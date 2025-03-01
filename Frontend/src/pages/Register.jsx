@@ -76,7 +76,7 @@ const Register = () => {
               </div>
 
               <button type="submit" className='flex justify-center items-center gap-3 bg-black text-white rounded-lg py-2 font-medium text-sm cursor-pointer hover:bg-gray-800'>
-              {loading ? ('Loading...') : (<> Sign up <ArrowRight size={14}/> </>)}
+              {loading ? (<span className="loading loading-dots loading-sm"></span>) : (<> Sign up <ArrowRight size={14}/> </>)}
               </button>          
          </form>
          <span className='text-sm mt-4 font-normal'>
