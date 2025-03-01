@@ -41,13 +41,15 @@ app.use(express.json())
 app.use(helmet())
 
 const allowedOrigins = [
-  'https://jobsvault.vercel.app/'
+  'https://jobsvault.vercel.app',
+  'http://localhost:5173' // Add this for local development
 ];
 
 app.use(cors({
   origin: allowedOrigins,
   methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true // Allows cookies and authorization headers
 }));
 
 app.use(xss())
