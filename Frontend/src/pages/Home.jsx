@@ -23,7 +23,7 @@ const Home = () => {
                 <div className='text-gray-500 text-center text-lg'>
                     Organize and track your job applications effortlessly with our intuitive tracking system. Stay in control of your career journey and never lose sight of an opportunity
                 </div>
-                <div className='flex justify-center items-center gap-5'>
+                <div className='flex justify-center items-center gap-5 pb-10'>
                     <Link to="/register" className='block bg-black text-white px-7 py-2 font-medium rounded-full hover:scale-105 transition duration-150'>Get Started →</Link>
                     <Link to="/login" className='block bg-white text-black px-6 py-2 font-medium rounded-full hover:shadow-lg hover:bg-slate-100 transition duration-150'>Sign In</Link>
                 </div>
