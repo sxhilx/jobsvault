@@ -80,7 +80,7 @@ const Register = () => {
               </button>          
          </form>
          <span className='text-sm mt-4 font-normal'>
-         Already have an account? <Link href="/login" className='hover:underline'>Sign in</Link>
+         Already have an account? <Link to="/login" className='hover:underline'>Sign in</Link>
          </span>
       </div>
     </div>
