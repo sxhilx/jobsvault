@@ -32,7 +32,7 @@ const Layout = () => {
       </div>
 )}
 
-      <div className={`flex-1 flex-grow overflow-auto transition-transform duration-200 ${isSideBarOpen ? "md:pl-64" : "pl-0"}`}>
+      <div className={`flex-1 flex-grow overflow-auto transition-transform duration-200 ${isSideBarOpen ? "md:pl-64" : "pl-0"} animate-fadeIn`}>
 
         <ScrollTop/>
         <Outlet />        
