@@ -20,11 +20,18 @@ const Layout = () => {
       </div>
 
       {!isSideBarOpen && (
-        <div className="fixed top-0 left-5 z-50 bg-white transition-transform duration-300">
-          <Columns2 size={24} onClick={toggleSideBar} className="text-gray-500 cursor-pointer" />
+      <div className="fixed top-0 w-full z-50 bg-white p-4 transition duration-300">
+        <div className="flex items-center justify-between md:justify-start gap-5">
+        <Columns2
+          size={24}
+          onClick={toggleSideBar}
+          className="text-gray-500 cursor-pointer"
+        />
+
         </div>
-      )}
-      
+      </div>
+)}
+
       <div className={`flex-1 overflow-auto transition-transform duration-200 ${isSideBarOpen ? "md:pl-64" : "pl-0"}`}>
 
         <ScrollTop/>

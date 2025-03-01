@@ -14,7 +14,7 @@ const Sidebar = ({isOpen, toggleSideBar}) => {
         <div className={`w-full md:max-w-3xs bg-white border-r border-[#E5E7EB] h-screen fixed top-0 left-0 z-50 overflow-hidden font-primary transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
             <div className="p-4">
                 <div className="flex justify-between items-center">
-                <h1 className="text-2xl text-black font-semibold">Jobs Vault</h1>
+                <h1 className="text-2xl text-black font-semibold">JobsVault</h1>
                 <Columns2 onClick={toggleSideBar} className="text-gray-500 cursor-pointer"/>
                 </div>
                 <ul className="mt-7 space-y-5 mx-2 ">
