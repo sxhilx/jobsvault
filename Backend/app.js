@@ -35,10 +35,11 @@ app.use('/swagger', express.static(swaggerUiAssetPath));
 
 app.use(ratelimiter({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 request per windowMs
+    max: 100,
 }))
 app.use(express.json())
 app.use(helmet())
+
 const allowedOrigins = [
   'https://jobsvault.vercel.app/'
 ];
