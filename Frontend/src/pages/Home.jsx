@@ -14,7 +14,6 @@ const Home = () => {
                 <span><Rocket size={14} className='text-gray-400'/></span>
                 <span className='text-gray-400 text-xs md:text-sm'> 
                     Supercharge your job hunt. Track applications with ease.
-                    <Link to="/register" className='text-black font-semibold'> Get started →</Link>
                 </span>
             </div>
             <div className=" flex flex-col justify-center items-center space-y-10">
