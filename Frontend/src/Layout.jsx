@@ -20,7 +20,7 @@ const Layout = () => {
       </div>
 
       {!isSideBarOpen && (
-        <div className="fixed top-5 left-5 z-50 transition-transform duration-300">
+        <div className="absolute top-5 left-5 transition-transform duration-300">
           <Columns2 size={24} onClick={toggleSideBar} className="text-gray-500 cursor-pointer" />
         </div>
       )}
