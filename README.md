@@ -51,7 +51,7 @@ Create a `.env` file in the `backend` folder and add:
 ```env
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-JWT_LIFESPAN=30d
+JWT_LIFESPAN=your_desired_lifespan
 ```
 
 ## API Documentation
