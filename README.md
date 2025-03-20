@@ -11,7 +11,7 @@ JobVault is a full-stack MERN application designed to help users keep track thei
 ## Tech Stack
 
 ### Frontend
-- React (Vite)
+- React ( Vite )
 - Tailwind CSS  4.0 (for styling)
 - DaisyUI (for pre-styled components)
 
